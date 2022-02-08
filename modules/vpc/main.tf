@@ -71,7 +71,7 @@ data "aws_region" "current" {}
 
 locals {
   current_region                   = data.aws_region.current.name
-  default_dhcp_options_domain_name = local.current_region != "ap-northeast-2" ? "${local.current_region}.compute.internal" : "ec2.internal"
+  default_dhcp_options_domain_name = local.current_region != "us-east-1" ? "${local.current_region}.compute.internal" : "ec2.internal"
 }
 
 resource "aws_vpc_dhcp_options" "this" {
