@@ -30,7 +30,7 @@ resource "aws_resourcegroups_group" "this" {
     description = var.resource_group_description
 
     resource_query {
-      type = "TAG_FILTER_1_0"
+      type = "TAG_FILTERS_1_0"
       query = local.resource_group_query
     }
 
