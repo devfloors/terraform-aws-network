@@ -85,7 +85,7 @@ resource "aws_vpc_dhcp_options" "this" {
       "Name" = local.metadata.name
     },
     local.module_tags,
-    ver.tags
+    var.tags
   )
 }
 
@@ -136,7 +136,7 @@ resource "aws_egress_only_internet_gateway" "this" {
 # Virtual Private Gateway
 ###################################################
 
-resource "aws_vpc_gateway" "this" {
+resource "aws_vpn_gateway" "this" {
   count = var.vpn_gateway_enabled ? 1 : 0
 
   vpc_id = aws_vpc.this.id
